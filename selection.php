@@ -1,9 +1,8 @@
 <?php
-
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "onlinebooking";
+$servername = "mysql40.unoeuro.com";
+$username = "campuskoreskole_dk";
+$password = "db2pDhmB5akwc4nH3Fyx";
+$dbname = "campuskoreskole_dk_db";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -11,7 +10,7 @@ if ($conn->connect_error) {
     die("Forbindelse mislykkedes: " . $conn->connect_error);
 }
 
-$sql = "SELECT * FROM Kørelærer";
+$sql = "SELECT * FROM korelerer";
 $result = $conn->query($sql);
 ?>
     <!DOCTYPE html>
@@ -36,10 +35,10 @@ $result = $conn->query($sql);
             echo '<tbody>';
             while($row = $result->fetch_assoc()) {
                 echo '<tr>';
-                echo '<td>' . $row["KøreLæreNavn"] . '</td>';
+                echo '<td>' . $row["KoreLereNavn"] . '</td>';
                 echo '<td>' . $row["Gear"] . '</td>';
                 echo '<td>' . $row["Erfaring"] . ' år</td>';
-                echo '<td><a href="dato.php?koerelaerer_id=' . $row["KøreLæreId"] . '" class="btn btn-primary">Vælg denne kørelærer</a></td>';
+                echo '<td><a href="dato.php?koerelaerer_id=' . $row["KoreLereId"] . '" class="btn btn-primary">Vælg denne kørelærer</a></td>';
                 echo '</tr>';
             }
             echo '</tbody>';
