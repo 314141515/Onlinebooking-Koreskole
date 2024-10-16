@@ -1,9 +1,8 @@
 <?php
-
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "onlinebooking";
+$servername = "mysql40.unoeuro.com";
+$username = "campuskoreskole_dk";
+$password = "db2pDhmB5akwc4nH3Fyx";
+$dbname = "campuskoreskole_dk_db";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -12,10 +11,10 @@ if ($conn->connect_error) {
 }
 
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $dato = $_POST['dato'];
     $tid = $_POST['tid'];
-    $brugernavn = "Brugernavn"; // Denne værdi bør dynamisk hentes, afhængigt af brugerens session
+    $brugernavn = "Brugernavn";
 
     if (empty($tid)) {
         $message = "Fejl: Du skal vælge et tidspunkt.";
